@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007-seed-units
+      author: eugene
+      changes:
+        - insert:
+            tableName: units
+            columns:
+              - column:
+                  name: id
+                  value: DEP-1
+              - column:
+                  name: name
+                  value: "Dep 1 name"
+              - column:
+                  name: parent_id
+                  value: null
+        - insert:
+            tableName: units
+            columns:
+              - column:
+                  name: id
+                  value: DEP-2
+              - column:
+                  name: name
+                  value: "Dep 2 name"
+              - column:
+                  name: parent_id
+                  value: DEP-1
+      rollback:
+        - delete:
+            tableName: units
+            where: id in ('DEP-1','DEP-2')

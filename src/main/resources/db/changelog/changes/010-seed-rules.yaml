@@ -1,0 +1,69 @@
+databaseChangeLog:
+  - changeSet:
+      id: 010-seed-rules
+      author: eugene
+      changes:
+        - insert:
+            tableName: rules
+            columns:
+              - column:
+                  name: code
+                  value: GOAL_NO_OWNER
+              - column:
+                  name: title
+                  value: "Goal without owner"
+              - column:
+                  name: severity
+                  value: CRITICAL
+        - insert:
+            tableName: rules
+            columns:
+              - column:
+                  name: code
+                  value: GOAL_NO_KR
+              - column:
+                  name: title
+                  value: "Active goal without key results"
+              - column:
+                  name: severity
+                  value: CRITICAL
+        - insert:
+            tableName: rules
+            columns:
+              - column:
+                  name: code
+                  value: KR_WEIGHTS_SUM
+              - column:
+                  name: title
+                  value: "KR weights sum is not 100%"
+              - column:
+                  name: severity
+                  value: MAJOR
+        - insert:
+            tableName: rules
+            columns:
+              - column:
+                  name: code
+                  value: CASCADE_NO_PARENT
+              - column:
+                  name: title
+                  value: "Goal is not linked to parent goal"
+              - column:
+                  name: severity
+                  value: MAJOR
+        - insert:
+            tableName: rules
+            columns:
+              - column:
+                  name: code
+                  value: KR_STALE_PROGRESS
+              - column:
+                  name: title
+                  value: "KR fact is stale (> 45 days)"
+              - column:
+                  name: severity
+                  value: MINOR
+      rollback:
+        - delete:
+            tableName: rules
+            where: code in ('GOAL_NO_OWNER','GOAL_NO_KR','KR_WEIGHTS_SUM','CASCADE_NO_PARENT','KR_STALE_PROGRESS')

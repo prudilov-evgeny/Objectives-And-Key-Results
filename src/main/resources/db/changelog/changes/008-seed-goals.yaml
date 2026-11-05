@@ -1,0 +1,183 @@
+databaseChangeLog:
+  - changeSet:
+      id: 008-seed-goals
+      author: eugene
+      changes:
+        - insert:
+            tableName: goals
+            columns:
+              - column:
+                  name: id
+                  value: G1
+              - column:
+                  name: title
+                  value: "Goal 1 name"
+              - column:
+                  name: unit_id
+                  value: DEP-1
+              - column:
+                  name: owner
+                  value: "Owner 1"
+              - column:
+                  name: parent_goal_id
+                  value: null
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: due_date
+                  value: "2026-12-31"
+
+        - insert:
+            tableName: goals
+            columns:
+              - column:
+                  name: id
+                  value: G2
+              - column:
+                  name: title
+                  value: "Goal 2 name"
+              - column:
+                  name: unit_id
+                  value: DEP-1
+              - column:
+                  name: owner
+                  value: "Owner 2"
+              - column:
+                  name: parent_goal_id
+                  value: G1
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: due_date
+                  value: "2026-12-31"
+
+        - insert:
+            tableName: goals
+            columns:
+              - column:
+                  name: id
+                  value: G3
+              - column:
+                  name: title
+                  value: "Goal 3 name"
+              - column:
+                  name: unit_id
+                  value: DEP-1
+              - column:
+                  name: owner
+                  value: null
+              - column:
+                  name: parent_goal_id
+                  value: G1
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: due_date
+                  value: "2026-12-01"
+
+        - insert:
+            tableName: goals
+            columns:
+              - column:
+                  name: id
+                  value: G4
+              - column:
+                  name: title
+                  value: "Goal 4 name"
+              - column:
+                  name: unit_id
+                  value: DEP-1
+              - column:
+                  name: owner
+                  value: "Owner 4"
+              - column:
+                  name: parent_goal_id
+                  value: G1
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: due_date
+                  value: "2026-12-15"
+
+        - insert:
+            tableName: goals
+            columns:
+              - column:
+                  name: id
+                  value: G5
+              - column:
+                  name: title
+                  value: "Goal 5 name"
+              - column:
+                  name: unit_id
+                  value: DEP-2
+              - column:
+                  name: owner
+                  value: "Owner 5"
+              - column:
+                  name: parent_goal_id
+                  value: G2
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: due_date
+                  value: "2026-11-30"
+
+        - insert:
+            tableName: goals
+            columns:
+              - column:
+                  name: id
+                  value: G6
+              - column:
+                  name: title
+                  value: "Goal 6 name"
+              - column:
+                  name: unit_id
+                  value: DEP-2
+              - column:
+                  name: owner
+                  value: "Owner 6"
+              - column:
+                  name: parent_goal_id
+                  value: null
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: due_date
+                  value: "2026-12-10"
+
+        - insert:
+            tableName: goals
+            columns:
+              - column:
+                  name: id
+                  value: G7
+              - column:
+                  name: title
+                  value: "Goal 7 name"
+              - column:
+                  name: unit_id
+                  value: DEP-1
+              - column:
+                  name: owner
+                  value: "Owner 7"
+              - column:
+                  name: parent_goal_id
+                  value: G1
+              - column:
+                  name: status
+                  value: ACTIVE
+              - column:
+                  name: due_date
+                  value: "2026-12-31"
+      rollback:
+        - delete:
+            tableName: goals
+            where: id like 'G%'

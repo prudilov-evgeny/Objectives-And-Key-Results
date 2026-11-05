@@ -1,0 +1,7 @@
+changeLogFile=db/changelog/db.changelog-master.yaml
+
+url=jdbc:postgresql://localhost:PORT/DB_NAME
+username=
+password=
+
+driver=org.postgresql.Driver

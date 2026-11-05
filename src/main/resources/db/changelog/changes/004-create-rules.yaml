@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-create-kkd-rules
+      author: eugene
+      changes:
+        - createTable:
+            tableName: rules
+            columns:
+              - column:
+                  name: code
+                  type: VARCHAR(64)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: severity
+                  type: VARCHAR(16)
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: rules

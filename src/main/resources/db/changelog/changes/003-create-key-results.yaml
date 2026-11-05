@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-key-results
+      author: eugene
+      changes:
+        - createTable:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(64)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: goal_id
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: target_value
+                  type: NUMERIC(19,4)
+              - column:
+                  name: fact_value
+                  type: NUMERIC(19,4)
+              - column:
+                  name: weight
+                  type: NUMERIC(19,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: fact_updated_at
+                  type: DATE
+        - addForeignKeyConstraint:
+            constraintName: fk_kr_goal
+            baseTableName: key_results
+            baseColumnNames: goal_id
+            referencedTableName: goals
+            referencedColumnNames: id
+        - createIndex:
+            indexName: idx_kr_goal
+            tableName: key_results
+            columns:
+              - column:
+                  name: goal_id
+      rollback:
+        - dropTable:
+            tableName: key_results

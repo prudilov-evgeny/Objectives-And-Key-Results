@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-create-units.yaml
+  - include:
+      file: db/changelog/changes/002-create-goals.yaml
+  - include:
+      file: db/changelog/changes/003-create-key-results.yaml
+  - include:
+      file: db/changelog/changes/004-create-rules.yaml
+  - include:
+      file: db/changelog/changes/005-create-runs.yaml
+  - include:
+      file: db/changelog/changes/006-create-issues.yaml
+  - include:
+      file: db/changelog/changes/007-seed-units.yaml
+  - include:
+      file: db/changelog/changes/008-seed-goals.yaml
+  - include:
+      file: db/changelog/changes/009-seed-key-results.yaml
+  - include:
+      file: db/changelog/changes/010-seed-rules.yaml
+  - include:
+      file: db/changelog/changes/011-seed-runs.yaml
+  - include:
+      file: db/changelog/changes/012-seed-issues.yaml

@@ -1,0 +1,84 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006-create-issues
+      author: eugene
+      changes:
+        - createTable:
+            tableName: issues
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: run_id
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rule_code
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: object_type
+                  type: VARCHAR(8)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: object_id
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: severity
+                  type: VARCHAR(16)
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: fk_issues_run
+            baseTableName: issues
+            baseColumnNames: run_id
+            referencedTableName: runs
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            constraintName: fk_issues_rule
+            baseTableName: issues
+            baseColumnNames: rule_code
+            referencedTableName: rules
+            referencedColumnNames: code
+        - createIndex:
+            indexName: idx_issues_run
+            tableName: issues
+            columns:
+              - column:
+                  name: run_id
+        - createIndex:
+            indexName: idx_issues_rule
+            tableName: issues
+            columns:
+              - column:
+                  name: rule_code
+        - createIndex:
+            indexName: idx_issues_severity
+            tableName: issues
+            columns:
+              - column:
+                  name: severity
+        - createIndex:
+            indexName: uq_issues_run_rule_object
+            tableName: issues
+            unique: true
+            columns:
+              - column:
+                  name: run_id
+              - column:
+                  name: rule_code
+              - column:
+                  name: object_id
+      rollback:
+        - dropTable:
+            tableName: issues

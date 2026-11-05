@@ -1,0 +1,206 @@
+databaseChangeLog:
+  - changeSet:
+      id: 009-seed-key-results
+      author: eugene
+      changes:
+        - insert:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  value: KR1
+              - column:
+                  name: goal_id
+                  value: G1
+              - column:
+                  name: title
+                  value: "KR 1 name"
+              - column:
+                  name: target_value
+                  value: 100
+              - column:
+                  name: fact_value
+                  value: 60
+              - column:
+                  name: weight
+                  value: 100
+              - column:
+                  name: fact_updated_at
+                  value: "2026-10-25"
+
+        - insert:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  value: KR2
+              - column:
+                  name: goal_id
+                  value: G2
+              - column:
+                  name: title
+                  value: "KR 2 name"
+              - column:
+                  name: target_value
+                  value: 50
+              - column:
+                  name: fact_value
+                  value: 30
+              - column:
+                  name: weight
+                  value: 60
+              - column:
+                  name: fact_updated_at
+                  value: "2026-10-24"
+        - insert:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  value: KR3
+              - column:
+                  name: goal_id
+                  value: G2
+              - column:
+                  name: title
+                  value: "KR 3 name"
+              - column:
+                  name: target_value
+                  value: 200
+              - column:
+                  name: fact_value
+                  value: 120
+              - column:
+                  name: weight
+                  value: 40
+              - column:
+                  name: fact_updated_at
+                  value: "2026-10-24"
+
+        - insert:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  value: KR4
+              - column:
+                  name: goal_id
+                  value: G3
+              - column:
+                  name: title
+                  value: "KR 4 name"
+              - column:
+                  name: target_value
+                  value: 10
+              - column:
+                  name: fact_value
+                  value: 3
+              - column:
+                  name: weight
+                  value: 100
+              - column:
+                  name: fact_updated_at
+                  value: "2026-09-01"
+
+        - insert:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  value: KR5
+              - column:
+                  name: goal_id
+                  value: G4
+              - column:
+                  name: title
+                  value: "KR 5 name"
+              - column:
+                  name: target_value
+                  value: 100
+              - column:
+                  name: fact_value
+                  value: 50
+              - column:
+                  name: weight
+                  value: 50
+              - column:
+                  name: fact_updated_at
+                  value: "2026-10-25"
+        - insert:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  value: KR6
+              - column:
+                  name: goal_id
+                  value: G4
+              - column:
+                  name: title
+                  value: "KR 6 name"
+              - column:
+                  name: target_value
+                  value: 50
+              - column:
+                  name: fact_value
+                  value: 20
+              - column:
+                  name: weight
+                  value: 30
+              - column:
+                  name: fact_updated_at
+                  value: "2026-10-25"
+
+        - insert:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  value: KR7
+              - column:
+                  name: goal_id
+                  value: G6
+              - column:
+                  name: title
+                  value: "KR 7 name"
+              - column:
+                  name: target_value
+                  value: 5
+              - column:
+                  name: fact_value
+                  value: 2
+              - column:
+                  name: weight
+                  value: 100
+              - column:
+                  name: fact_updated_at
+                  value: "2026-10-22"
+
+        - insert:
+            tableName: key_results
+            columns:
+              - column:
+                  name: id
+                  value: KR8
+              - column:
+                  name: goal_id
+                  value: G7
+              - column:
+                  name: title
+                  value: "KR 8 name"
+              - column:
+                  name: target_value
+                  value: 10
+              - column:
+                  name: fact_value
+                  value: 8
+              - column:
+                  name: weight
+                  value: 100
+              - column:
+                  name: fact_updated_at
+                  value: "2026-10-25"
+      rollback:
+        - delete:
+            tableName: key_results
+            where: id like 'KR%'

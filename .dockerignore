@@ -1,0 +1,8 @@
+target/
+.idea/
+*.iml
+.git/
+.gitignore
+src/main/resources/liquibase.properties
+.env
+README.md
