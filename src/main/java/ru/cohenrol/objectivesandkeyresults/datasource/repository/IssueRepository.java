@@ -39,7 +39,7 @@ public interface IssueRepository extends JpaRepository<IssueEntity, Long> {
         @Param("runId") String runId,
         @Param("unitIds") Collection<String> unitIds,
         @Param("rule") String rule,
-        @Param("severity") Severity severity,
+        @Param("severity") String severity,
         @Param("unitFilterDisabled") boolean unitFilterDisabled,
         @Param("limit") int limit,
         @Param("offset") int offset
@@ -68,7 +68,7 @@ public interface IssueRepository extends JpaRepository<IssueEntity, Long> {
         @Param("runId") String runId,
         @Param("unitIds") Collection<String> unitIds,
         @Param("rule") String rule,
-        @Param("severity") Severity severity,
+        @Param("severity") String severity,
         @Param("unitFilterDisabled") boolean unitFilterDisabled
     );
 
