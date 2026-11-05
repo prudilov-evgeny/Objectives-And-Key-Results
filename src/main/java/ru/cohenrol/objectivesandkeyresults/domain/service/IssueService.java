@@ -45,10 +45,11 @@ public class IssueService {
         boolean unitFilterDisabled = unitIds == null;
         List<String> effectiveUnitIds = unitIds == null ? List.of() : unitIds;
 
-        long total = issueRepository.countFiltered(runId, effectiveUnitIds, rule, severity, unitFilterDisabled);
+        String severityStr = (severity == null) ? null : severity.name();
+        long total = issueRepository.countFiltered(runId, effectiveUnitIds, rule, severityStr, unitFilterDisabled);
         List<IssueEntity> rows = issueRepository.findFiltered(
             runId, effectiveUnitIds,
-            rule, severity,
+            rule, severityStr,
             unitFilterDisabled,
             limit, offset
         );
